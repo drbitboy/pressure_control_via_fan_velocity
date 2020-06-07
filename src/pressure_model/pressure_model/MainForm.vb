@@ -1,4 +1,5 @@
 ﻿Imports MfgControl.AdvancedHMI.Controls
+Imports Microsoft.Win32
 
 Public Class MainForm
     '*******************************************************************************
@@ -276,6 +277,12 @@ Public Class MainForm
         If chk_debug.Checked Then
             avd_debug_dpdt_0.Value = dpdt_0
             avd_debug_dpdt_1.Value = dpdt_1
+
+            Dim dbl_error As Double
+            dbl_error = VDbl(avd_pid_setpoint) - VDbl(avd_pid_pv)
+            avd_debug_error.Value = dbl_error
+            frm_logabserr.addpoint(dbl_error)
+            frm_fanspeedpct.addpoint(VDbl(avd_fan_speed))
         End If
 
         '' Get Implicit Euler parameter
@@ -312,5 +319,14 @@ Public Class MainForm
         debug_toggle(avd_debug_dpdt_1)
         debug_toggle(lbl_debug_delta_psig)
         debug_toggle(avd_debug_delta_psig)
+        debug_toggle(lbl_debug_error)
+        debug_toggle(avd_debug_error)
+    End Sub
+
+    Private Sub lbl_debug_error_Click(sender As Object, e As EventArgs) Handles lbl_debug_error.Click
+        frm_logabserr.Visible = Not frm_logabserr.Visible
+    End Sub
+    Private Sub lbl_fan_speed_Click(sender As Object, e As EventArgs) Handles lbl_fan_speed.Click
+        frm_fanspeedpct.Visible = Not frm_fanspeedpct.Visible
     End Sub
 End Class

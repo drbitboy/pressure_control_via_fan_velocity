@@ -70,6 +70,8 @@ Partial Class MainForm
         Me.lbl_debug_dpdt_1 = New System.Windows.Forms.Label()
         Me.avd_debug_dpdt_0 = New AdvancedHMIControls.AnalogValueDisplay()
         Me.avd_debug_dpdt_1 = New AdvancedHMIControls.AnalogValueDisplay()
+        Me.avd_debug_error = New AdvancedHMIControls.AnalogValueDisplay()
+        Me.lbl_debug_error = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EthernetIPforSLCMicroCom1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -637,7 +639,7 @@ Partial Class MainForm
         Me.avd_pid_gain.Name = "avd_pid_gain"
         Me.avd_pid_gain.NumericFormat = "F3"
         Me.avd_pid_gain.PLCAddressKeypad = "F10:0"
-        Me.avd_pid_gain.PLCAddressValue = Nothing
+        Me.avd_pid_gain.PLCAddressValue = CType(resources.GetObject("avd_pid_gain.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
         Me.avd_pid_gain.PLCAddressValueLimitLower = Nothing
         Me.avd_pid_gain.PLCAddressValueLimitUpper = Nothing
         Me.avd_pid_gain.PLCAddressVisible = Nothing
@@ -683,7 +685,7 @@ Partial Class MainForm
         Me.avd_pid_reset.Name = "avd_pid_reset"
         Me.avd_pid_reset.NumericFormat = "F3"
         Me.avd_pid_reset.PLCAddressKeypad = "F10:1"
-        Me.avd_pid_reset.PLCAddressValue = Nothing
+        Me.avd_pid_reset.PLCAddressValue = CType(resources.GetObject("avd_pid_reset.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
         Me.avd_pid_reset.PLCAddressValueLimitLower = Nothing
         Me.avd_pid_reset.PLCAddressValueLimitUpper = Nothing
         Me.avd_pid_reset.PLCAddressVisible = Nothing
@@ -729,7 +731,7 @@ Partial Class MainForm
         Me.avd_pid_rate.Name = "avd_pid_rate"
         Me.avd_pid_rate.NumericFormat = "F3"
         Me.avd_pid_rate.PLCAddressKeypad = "F10:2"
-        Me.avd_pid_rate.PLCAddressValue = Nothing
+        Me.avd_pid_rate.PLCAddressValue = CType(resources.GetObject("avd_pid_rate.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
         Me.avd_pid_rate.PLCAddressValueLimitLower = Nothing
         Me.avd_pid_rate.PLCAddressValueLimitUpper = Nothing
         Me.avd_pid_rate.PLCAddressVisible = Nothing
@@ -1015,11 +1017,57 @@ Partial Class MainForm
         Me.avd_debug_dpdt_1.ValueSuffix = Nothing
         Me.avd_debug_dpdt_1.VisibleControl = AdvancedHMIControls.AnalogValueDisplay.VisibleControlEnum.Always
         '
+        'avd_debug_error
+        '
+        Me.avd_debug_error.AutoSize = True
+        Me.avd_debug_error.ComComponent = Me.EthernetIPforSLCMicroCom1
+        Me.avd_debug_error.ForeColor = System.Drawing.Color.Gray
+        Me.avd_debug_error.ForeColorInLimits = System.Drawing.Color.Gray
+        Me.avd_debug_error.ForeColorOverLimit = System.Drawing.Color.Gray
+        Me.avd_debug_error.ForeColorUnderLimit = System.Drawing.Color.Gray
+        Me.avd_debug_error.KeypadFontColor = System.Drawing.Color.WhiteSmoke
+        Me.avd_debug_error.KeypadMaxValue = 0R
+        Me.avd_debug_error.KeypadMinValue = 0R
+        Me.avd_debug_error.KeypadPasscode = Nothing
+        Me.avd_debug_error.KeypadScaleFactor = 1.0R
+        Me.avd_debug_error.KeypadText = Nothing
+        Me.avd_debug_error.KeypadWidth = 300
+        Me.avd_debug_error.Location = New System.Drawing.Point(261, -343)
+        Me.avd_debug_error.Name = "avd_debug_error"
+        Me.avd_debug_error.NumericFormat = "E5"
+        Me.avd_debug_error.PLCAddressKeypad = ""
+        Me.avd_debug_error.PLCAddressValue = Nothing
+        Me.avd_debug_error.PLCAddressValueLimitLower = Nothing
+        Me.avd_debug_error.PLCAddressValueLimitUpper = Nothing
+        Me.avd_debug_error.PLCAddressVisible = Nothing
+        Me.avd_debug_error.ShowValue = True
+        Me.avd_debug_error.Size = New System.Drawing.Size(113, 18)
+        Me.avd_debug_error.TabIndex = 56
+        Me.avd_debug_error.Text = "9.99900E+003"
+        Me.avd_debug_error.Value = "9999"
+        Me.avd_debug_error.ValueLimitLower = -999999.0R
+        Me.avd_debug_error.ValueLimitUpper = 999999.0R
+        Me.avd_debug_error.ValuePrefix = Nothing
+        Me.avd_debug_error.ValueSuffix = Nothing
+        Me.avd_debug_error.VisibleControl = AdvancedHMIControls.AnalogValueDisplay.VisibleControlEnum.Always
+        '
+        'lbl_debug_error
+        '
+        Me.lbl_debug_error.AutoSize = True
+        Me.lbl_debug_error.ForeColor = System.Drawing.Color.Gray
+        Me.lbl_debug_error.Location = New System.Drawing.Point(171, -341)
+        Me.lbl_debug_error.Name = "lbl_debug_error"
+        Me.lbl_debug_error.Size = New System.Drawing.Size(87, 18)
+        Me.lbl_debug_error.TabIndex = 55
+        Me.lbl_debug_error.Text = "Error, PSIG"
+        '
         'MainForm
         '
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(736, 389)
+        Me.Controls.Add(Me.avd_debug_error)
+        Me.Controls.Add(Me.lbl_debug_error)
         Me.Controls.Add(Me.avd_debug_dpdt_1)
         Me.Controls.Add(Me.avd_debug_dpdt_0)
         Me.Controls.Add(Me.lbl_debug_dpdt_1)
@@ -1124,4 +1172,6 @@ Partial Class MainForm
     Friend WithEvents lbl_debug_dpdt_1 As Label
     Friend WithEvents avd_debug_dpdt_0 As AdvancedHMIControls.AnalogValueDisplay
     Friend WithEvents avd_debug_dpdt_1 As AdvancedHMIControls.AnalogValueDisplay
+    Friend WithEvents avd_debug_error As AdvancedHMIControls.AnalogValueDisplay
+    Friend WithEvents lbl_debug_error As Label
 End Class
