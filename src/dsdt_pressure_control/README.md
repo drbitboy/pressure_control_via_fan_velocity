@@ -51,9 +51,13 @@
         N.B. Assumes Pss constant over [t:t+delt];
              assumes instantaneous responses of fan speed and flow
 
-      Fan speed
+      Fan speed control
+
+        dS/dt ~ (S(t) - S(t-delt)) / delT = Kc (SP - P)
+
+        =>
 
         S(t) = S(t-delt) + Kc (SP - P)
 
-        N.B. Reverse-(re-)acting PID with 0 = Ti = Td
+        N.B. Reverse-(re-)acting PID with 0 = Ti = Td, and CV ~ dS/dt
 
