@@ -8,6 +8,7 @@ it instead drives a speed ramp that changes the fan speed.  This is in effect
 an ID controller; PID without the Proportional term acting directly on the fan
 speed, but the ramp acts like the Integral (I; Reset) term of the PID equation.
 
+![](https://github.com/drbitboy/pressure_control_via_fan_velocity/raw/master/src/dsdt_pressure_control/doc/img/dsdt_pressure_control.png)
 
     ================================================================
      Modeling pressure control of an enclosure via fan speed ramp (fan acceleration)
