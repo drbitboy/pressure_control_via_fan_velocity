@@ -121,9 +121,9 @@ Public Class MainForm
     ''   - PID output drives fan speed ramp i.e. output drives fan acceleration
     ''     - N.B. THE PID CONTROLLER DOES NOT KNOW THE ACTUAL FAN SPEED
     ''            - The fan speed is modeled in this code, and kept in the range 0-100%
-    ''   - At 50% output, ramp is 0%/s
-    ''   - At 0% output, ramp is -10%/s
-    ''   - At 100% output, ramp is +10%/s
+    ''   - At 0% output, ramp is 0%/s
+    ''   - At -50% output, ramp is -10%/s
+    ''   - At +50% output, ramp is +10%/s
     ''
     ''
     '' IMPLEMENTATION
@@ -163,9 +163,9 @@ Public Class MainForm
         '' if PID is in auto mode, or at 2s intervals otherwise
         '' - Run integration with updated inputs
         '' 
-        '' Ramp = -10/0/+10 %/s at 0/50/100% PID output
+        '' Ramp = -10/0/+10 %/s at -50/0/+50% PID output
         Dim fan_ramp_pctps As Double
-        fan_ramp_pctps = (VDbl(avd_pid_output) - 50.0) * 0.2
+        fan_ramp_pctps = VDbl(avd_pid_output) * 0.2
         avd_fan_ramp.Value = fan_ramp_pctps
 
         '' Adjust fan speed; limit to range 0-100%

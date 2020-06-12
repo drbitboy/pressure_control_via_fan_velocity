@@ -443,7 +443,7 @@ Partial Class MainForm
         Me.avd_pid_output.KeypadWidth = 300
         Me.avd_pid_output.Location = New System.Drawing.Point(572, 228)
         Me.avd_pid_output.Name = "avd_pid_output"
-        Me.avd_pid_output.NumericFormat = "F5"
+        Me.avd_pid_output.NumericFormat = "F6"
         Me.avd_pid_output.PLCAddressKeypad = "F10:9"
         Me.avd_pid_output.PLCAddressValue = CType(resources.GetObject("avd_pid_output.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
         Me.avd_pid_output.PLCAddressValueLimitLower = Nothing
@@ -452,10 +452,10 @@ Partial Class MainForm
         Me.avd_pid_output.ShowValue = True
         Me.avd_pid_output.Size = New System.Drawing.Size(112, 29)
         Me.avd_pid_output.TabIndex = 27
-        Me.avd_pid_output.Text = "50.00000"
-        Me.avd_pid_output.Value = "50"
-        Me.avd_pid_output.ValueLimitLower = 0.001R
-        Me.avd_pid_output.ValueLimitUpper = 99.999R
+        Me.avd_pid_output.Text = "0.000000"
+        Me.avd_pid_output.Value = "0"
+        Me.avd_pid_output.ValueLimitLower = -49.9995R
+        Me.avd_pid_output.ValueLimitUpper = 49.9995R
         Me.avd_pid_output.ValuePrefix = Nothing
         Me.avd_pid_output.ValueSuffix = Nothing
         Me.avd_pid_output.VisibleControl = AdvancedHMIControls.AnalogValueDisplay.VisibleControlEnum.Always
